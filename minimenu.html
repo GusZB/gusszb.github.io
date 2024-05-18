@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            border: 2px solid black;
+            margin: 20px;
+            padding-left: 60px;
+            padding-top: 10px;
+            padding-bottom: 60px;
+            background-color: rgb(59, 47, 87);
+            border-radius: 20px;
+        }
+            body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .menu {
+            border: 2px solid black;
+            margin: 20px;
+            padding-left: 60px;
+            padding-top: 10px;
+            padding-bottom: 60px;
+            background-color: rgb(59, 47, 87);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1.neon {
+            font-size: 48px;
+            color: hsl(291, 39%, 23%);
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 70px #00ffff;
+            animation: parpadeoNeon 5s infinite alternate;
+            padding-top: 5px;
+            text-align: center;
+        }
+        h3{
+            color: white;
+        }
+
+        @keyframes parpadeoNeon {
+            from {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 70px #00ffff;
+            }
+            to {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff, 0 0 110px #00ffff, 0 0 150px #00ffff;
+            }
+        }
+
+        button.uno {
+            background: linear-gradient(45deg, #620d63, #7700ff88, #ff00ff);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: neon 1.5s infinite alternate;
+            transition: all 0.2s ease; 
+            position: relative;
+            margin: 20px; /* Espacio entre los botones */
+            padding: 10px;
+        }
+        button.uno:hover {
+            transform: scale(1.2); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        @keyframes neon {
+            from {
+                filter: brightness(150%);
+            }
+            to {
+                filter: brightness(100%);
+            }
+        }
+
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1 class="neon">MiniMenu</h1>
+    <p>Haz click en la práctica que quieras:</p>
+    <h3>SEMANA 1</h3>
+    <button class="uno" onclick="boton0()">VARIABLES</button>
+    <button class="uno" onclick="boton1()">GENERADOR PARRAFOS</button>
+    <button class="uno" onclick="boton2()">SOLICITAR E IMPRIMIR TABLA</button>
+    <button class="uno" onclick="boton3()">TABLA CON CARACTER</button>
+    <button class="uno" onclick="boton4()">TABLA IMPRIMIR NUMEROS</button>
+    <button class="uno" onclick="boton5()">VALIDACION USUARIO Y CONTRASEÑA</button>
+    <button class="uno" onclick="boton6()">CONVERTIR TEMPERATURA</button>
+    <h3>SEMANA 2</h3>
+    <button class="uno" onclick="boton7()">GEOLOCALIZACION</button>
+    <button class="uno" onclick="boton8()">GEOLOCALIZACION MAPA</button>
+    <button class="uno" onclick="boton9()">VOLUMEN</button>
+    <button class="uno" onclick="boton10()">CANVA</button>
+    <button class="uno" onclick="boton11()">GRAFICA 1</button>
+    <button class="uno" onclick="boton12()">GRAFICA 2</button>
+    <button class="uno" onclick="boton13()">GRAFICA 3</button>
+    <button class="uno" onclick="boton14()">GRAFICA 4</button>
+    <h3>SEMANA 3</h3>
+    <button class="uno" onclick="boton15()">CANVAS</button>
+    <button class="uno" onclick="boton16()">TEST</button>
+    <h3>SEMANA 4</h3>
+    <button class="uno" onclick="boton17()">PDF TEST</button>
+    <button class="uno" onclick="boton18()">RETO PINO</button>
+    <p id="demo"></p>
+</div>
+
+<iframe id="practicaframe" name="menu" height="1000px" width="100%" title="iframe"></iframe>
+
+
+<script>
+    function boton0(){
+        document.getElementById("practicaframe").src = "variables.html";
+
+    }
+    function boton1(){
+        document.getElementById("practicaframe").src = "parrafos.html";
+
+    }
+    function boton2(){
+        document.getElementById("practicaframe").src = "filasCol.html";
+
+    }
+    function boton3(){
+        document.getElementById("practicaframe").src = "filasCaracter.html";
+    }
+    function boton4(){
+        document.getElementById("practicaframe").src = "tabla.html";
+    }
+    function boton5(){
+        document.getElementById("practicaframe").src = "acceso.html";
+    }
+    function boton6(){
+        document.getElementById("practicaframe").src = "ejerciciogrados.html";
+    }
+
+
+////
+    function boton7(){
+        document.getElementById("practicaframe").src = "geolocalizacion.html";
+    }
+    function boton8(){
+        document.getElementById("practicaframe").src = "geolocalizacion2.html";
+    }
+    function boton9(){
+        document.getElementById("practicaframe").src = "arreglos.html";
+    }
+    function boton10(){
+        document.getElementById("practicaframe").src = "arreglos.html";
+    }
+    function boton11(){
+        document.getElementById("practicaframe").src = "graficas1.html";
+    }
+    function boton12(){
+        document.getElementById("practicaframe").src = "graficas2.html";
+    }
+    function boton13(){
+        document.getElementById("practicaframe").src = "graficas3.html";
+    }
+    function boton14(){
+        document.getElementById("practicaframe").src = "arreglos.html";
+    }
+    /////
+
+    function boton15(){
+        document.getElementById("practicaframe").src = "canva.html";
+    }
+    function boton16(){
+        document.getElementById("practicaframe").src = "testalumno.html";
+    }
+    function boton17(){
+        document.getElementById("practicaframe").src = "testalumnoPDF.html";
+    }
+    function boton18(){
+        document.getElementById("practicaframe").src = "reto1Pino.html";
+    }
+</script>
+
+</body>
+</html>

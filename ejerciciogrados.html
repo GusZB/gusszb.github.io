@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convertidor de temperatura</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    div {
+        border: 3px solid black;
+        padding: 10px;
+        margin: 20px;
+        text-align: center;
+    }
+    #resultado {
+        border: 3px solid black;
+        padding: 10px;
+        margin: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div>
+    <h2>Convertidor de temperatura</h2>
+    <form id="myform" onsubmit="return mostrarConversion();">
+        <p>Grados Celsius: <input id="centi" name="centi" type="text"/></p>
+        <p>Convertir a:
+            <select name="opcion" id="opcion">
+                <option value="kel">Kelvin</option>
+                <option value="far">Fahrenheit</option>
+            </select>
+        </p>
+        <p><input type="submit" value="Convertir"/></p>
+    </form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+function mostrarConversion() {
+    var centi = parseFloat(document.getElementById('centi').value);
+    var opcion = document.getElementById('opcion').value;
+    var resultado;
+    var resultadoDiv = document.getElementById('resultado');
+    
+    if (opcion === "kel") {
+        resultado = centi + 273.15;
+        resultadoDiv.innerHTML = "<p>Celsius: " + centi + "</p>" +
+                                 "<p>Tu opción: Kelvin</p>" +
+                                 "<p>Conversion a Kelvin: " + resultado.toFixed(2) + " K</p>";
+    } else if (opcion === "far") {
+        resultado = centi * 9 / 5 + 32;
+        resultadoDiv.innerHTML = "<p>Celsius: " + centi + "</p>" +
+                                 "<p>Tu opción: Fahrenheit</p>" +
+                                 "<p>Conversion a Fahrenheit: " + resultado.toFixed(2) + " °F</p>";
+    }
+    
+    return false; // Para evitar que el formulario se envíe y la página se recargue
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <iframe id="pdf-frame" frameborder="0" width="500" height="400"></iframe>
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        var charac = prompt('Ingresa el caracter');
+        var multiplier = prompt('Ingresa el numero para la altura:');
+        multiplier = parseInt(multiplier);
+
+        var doc = new jsPDF();
+        doc.setFontSize(22);
+        doc.text(20, 20, 'Pino');
+        doc.setFontSize(16);
+
+        for (var i = 1; i <= multiplier; i++) {
+            var line = '';
+            for (var j = 1; j <= i; j++) {
+                line += charac;
+            }
+            doc.text(20, 30 + (i * 10), line);
+        }
+
+        doc.addPage();
+        doc.setFontSize(22);
+        doc.text(20, 20, 'Pino Completo');
+        doc.setFontSize(16);
+
+        for (var i = 1; i <= multiplier; i++) {
+            var line = '';
+            for (var j = 1; j <= i; j++) {
+                line += charac + ' ';
+            }
+            
+            var spaces = ' '.repeat(multiplier - i);
+            doc.text(20, 30 + (i * 10), spaces + line);
+        }
+
+        doc.save('pino.pdf');
+
+        var string = doc.output('datauristring');
+        $('#pdf-frame').attr('src', string);
+    </script>
+</body>
+</html>

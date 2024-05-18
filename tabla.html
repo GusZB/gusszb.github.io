@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+  <script type = "text/javascript">
+    function alertName(){
+        var filas1=parseInt(document.forms[0].filas.value);
+        var cols1=parseInt(document.forms[0].cols.value);
+        
+        
+        document.write("<table border=1>");
+        for(i=1;i<=filas1;i++){
+            document.write("<tr>");
+            for(j=1;j<=cols1;j++)
+              {
+                var num = Math.floor(Math.random()*100)+1;
+               document.write("<td>"+num+"</td>");
+              }
+            document.write("</tr>");
+         }
+        document.write("</table>");
+        return true;
+        }
+        </script>
+    </head>
+<body>
+    <style>
+    div{
+        margin: 20px;
+        border: 7px solid rgb(106, 105, 105);
+        box-shadow: 2px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+    body{
+        align-items: center;
+    }
+    h1{
+      text-align: center;
+    }
+    </style>
+     <div>
+    <h1>Ejercicio 3</h1>
+<form id="myform" onsubmit="return alertName();">
+<p> # Filas <input id="filas" name="filas" type="text"/></p>
+<p> # Columnas <input id="cols" name="cols" type="text"/></p>
+<p><input type="submit" /></p>
+    </div>
+</form>
+</body>
+</html>

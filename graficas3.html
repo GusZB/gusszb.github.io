@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<script>
+    let funcion = prompt("Ingresa la función que quieres graficar (sin, cos o tan):");
+    let inicio = parseInt(prompt("Ingresa el número inicial:", 0));
+    let final = parseInt(prompt("Ingresa el número final:", 0));
+
+    // Generate values
+    const xValues = [];
+    const yValues = [];
+
+    if (final > inicio) {
+        for (let x = inicio; x <= final; x += 0.1) {
+            if (funcion === "sin") {
+                xValues.push(x);
+                yValues.push(Math.sin(x));
+            } else if (funcion === "cos") {
+                xValues.push(x);
+                yValues.push(Math.cos(x));
+            } else if (funcion === "tan") {
+                xValues.push(x);
+                yValues.push(Math.tan(x));
+            } else {
+                alert("Función no válida. Por favor ingresa 'sin', 'cos' o 'tan'.");
+                break;
+            }
+        }
+    } else {
+        alert("El número final debe ser mayor que el número inicial.");
+    }
+
+    // Display using Plotly
+    const data = [{x: xValues, y: yValues, mode: "lines"}];
+    const layout = {title: "y = " + funcion + "(x)"};
+    Plotly.newPlot("myPlot", data, layout);
+</script>
+
+</body>
+</html>
+
+
+

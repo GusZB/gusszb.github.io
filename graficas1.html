@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <body>
+        <div id="myPlot" style="width:100%;max-width:700px"></div>
+        <div id="myPlot2" style="width:100%;max-width:700px"></div>
+        <div id="myPlot3" style="width:100%;max-width:700px"></div>
+            <script>
+                const xArray = ["Progra 1", "Mate 1", "Intro. Fisica", "Progra Web", "Ingles 3", "Nucleo 2"];
+                const yArray = [90, 60, 80, 92, 75, 72];
+                const data = [{
+                x:xArray,
+                y:yArray,
+                type:"bar",
+                orientation:"v",
+                marker: {color:"rgba(0,0,255,0.6)"}
+               }];
+                const layout = {title:"Calis. Primer Parcial"};
+                Plotly.newPlot("myPlot", data, layout);
+    
+            const xArray2 = ["Progra 1", "Mate 1", "Intro. Fisica", "Progra Web", "Ingles 3", "Nucleo 2"];
+                const yArray2 = [85, 55, 80, 55, 75, 80];
+                const data2 = [{
+                x:xArray2,
+                y:yArray2,
+                type:"bar",
+                orientation:"v",
+                marker: {color:"red"}
+               }];
+                const layout2 = {title:"Calis. Segundo Parcial"};
+                Plotly.newPlot("myPlot2", data2, layout2);   
+       
+    
+            const xArray3 = ["Progra 1", "Mate 1", "Intro. Fisica", "Progra Web", "Ingles 3", "Nucleo 2"];
+            const yArray3 = [0, 0, 0, 0, 0, 0];   
+            for(i=0;i<6;i++){
+            var num= Math.floor(Math.random() * 10);
+            yArray3[i]=num;
+            }
+            const data3 = [{
+            x:xArray3,
+            y:yArray3,
+            type:"bar",
+            orientation:"v",
+            marker: {color:"green"}
+           }];
+            const layout3 = {title:"Calis. Tercer Parcial"};
+            Plotly.newPlot("myPlot3", data3, layout3);
+       </script>    
+    </body>
+</html>

@@ -1,0 +1,88 @@
+body {
+  padding: 0 50px;
+  background-color: hwb(116 7% 54%);
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+  color: aliceblue;
+  font-size: 30px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+h2 {
+  margin: 0;
+  color:hwb(0 0% 100%);
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+strong {
+  padding: 0 10px;
+  background-color: rgb(51, 209, 19);
+  color: rgb(14, 115, 15);
+}
+
+i {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+time {
+  color: rgb(30, 159, 163);
+}
+
+img {
+  border: hwb(148 8% 16%) 5px solid;
+  padding: 5px;
+}
+
+img.izquierda {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+img.derecha {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+p.izquierda {
+  float: left;
+  width: 33%;
+}
+
+p.centrado {
+  text-align: center;
+}
+
+hr {
+  clear: both;
+  width: 66%;
+  height: 10px;
+  border: black 1px solid;
+  border-radius: 5px;
+  margin: 40px auto;
+  background-color: hwb(121 8% 24%);
+}
+
+address {
+  text-align: right;
+  font-style: normal
+}

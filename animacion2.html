@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.div1 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;  
+}
+
+.div2{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: guitar;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;  
+}
+
+
+@keyframes example {
+  0%   { left:20px; top:20px;}
+  25%  { left:150px; top:20px;}
+  50%  { left:200px; top:200px;}
+  75%  { left:0px; top:200px;}
+  100% { left:0px; top:0px;}
+}
+
+@keyframes guitar {
+  0%   { left:200px; top:200px;}
+  25%  { left:0px; top:0px;}
+  50%  { left:150px; top:150px;}
+  75%  { left:0px; top:200px;}
+  100% { left:0px; top:0px;}
+  from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<h1>CSS Animation</h1>
+
+<p>The animation-direction property specifies whether an animation should be played forwards, backwards or in alternate cycles. The following example uses the value "alternate-reverse" to make the animation run backwards first, then forwards:</p>
+<div>
+<img class="div1" src="nata.webp">
+</div>
+
+<div>
+<img class="div2" src="takamine.jfif">
+</div>
+
+
+
+</body>
+</html>

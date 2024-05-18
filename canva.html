@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+</head>
+<body>
+    <h1>Ahorcado</h1>
+    <div id="wordContainer"></div>
+    <canvas id="hangmanDrawing" width="200" height="200"></canvas>
+    <div id="letters"></div>
+    <script>
+        let palabraAdivinar = prompt("¡Jugador 1! Ingresa la palabra a adivinar").toLowerCase();
+        let palabraAdivinada = "";
+        let intentosRestantes = 6;
+
+        function mostrarPalabra() {
+            for (let i = 0; i < palabraAdivinar.length; i++) {
+                palabraAdivinada += "_";
+            }
+            document.getElementById("wordContainer").innerText = palabraAdivinada;
+        }
+
+        function dibujarAhorcado() {
+            const canvas = document.getElementById("hangmanDrawing");
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 3;
+
+            if (intentosRestantes < 6) ctx.beginPath();
+            if (intentosRestantes < 5) dibujarCabeza(ctx);
+            if (intentosRestantes < 4) dibujarCuerpo(ctx);
+            if (intentosRestantes < 3) dibujarBrazoIzquierdo(ctx);
+            if (intentosRestantes < 2) dibujarBrazoDerecho(ctx);
+            if (intentosRestantes < 1) dibujarPiernaIzquierda(ctx);
+            if (intentosRestantes < 0) dibujarPiernaDerecha(ctx);
+
+            ctx.stroke();
+        }
+
+        function dibujarCabeza(ctx) {
+            ctx.arc(100, 50, 20, 0, Math.PI * 2);
+        }
+
+        function dibujarCuerpo(ctx) {
+            ctx.moveTo(100, 70);
+            ctx.lineTo(100, 130);
+        }
+
+        function dibujarBrazoIzquierdo(ctx) {
+            ctx.moveTo(100, 80);
+            ctx.lineTo(60, 100);
+        }
+
+        function dibujarBrazoDerecho(ctx) {
+            ctx.moveTo(100, 80);
+            ctx.lineTo(140, 100);
+        }
+
+        function dibujarPiernaIzquierda(ctx) {
+            ctx.moveTo(100, 130);
+            ctx.lineTo(70, 180);
+        }
+
+        function dibujarPiernaDerecha(ctx) {
+            ctx.moveTo(100, 130);
+            ctx.lineTo(130, 180);
+        }
+
+        function actualizarPantalla() {
+            document.getElementById("letters").innerHTML = "";
+            for (let i = 97; i <= 122; i++) {
+                const letra = String.fromCharCode(i);
+                const botonLetra = document.createElement("button");
+                botonLetra.innerText = letra;
+                botonLetra.addEventListener("click", function() {
+                    comprobarLetra(letra);
+                    this.disabled = true;
+                });
+                document.getElementById("letters").appendChild(botonLetra);
+            }
+        }
+
+        function comprobarLetra(letra) {
+            if (palabraAdivinar.includes(letra)) {
+                for (let i = 0; i < palabraAdivinar.length; i++) {
+                    if (palabraAdivinar[i] === letra) {
+                        palabraAdivinada = palabraAdivinada.substring(0, i) + letra + palabraAdivinada.substring(i + 1);
+                    }
+                }
+                document.getElementById("wordContainer").innerText = palabraAdivinada;
+                if (palabraAdivinada === palabraAdivinar) {
+                    alert("¡Felicidades! ¡Has ganado!");
+                    reiniciarJuego();
+                }
+            } else {
+                intentosRestantes--;
+                dibujarAhorcado();
+                if (intentosRestantes === 0) {
+                    alert("¡Perdiste! La palabra era: " + palabraAdivinar);
+                    reiniciarJuego();
+                }
+            }
+        }
+
+        function reiniciarJuego() {
+            palabraAdivinar = prompt("¡Jugador 1! Ingresa la palabra a adivinar").toLowerCase();
+            palabraAdivinada = "";
+            intentosRestantes = 6;
+            mostrarPalabra();
+            dibujarAhorcado();
+        }
+
+        mostrarPalabra();
+        dibujarAhorcado();
+        actualizarPantalla();
+    </script>
+</body>
+</html>
+

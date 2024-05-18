@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Gustavo Zapata Baltierra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-buttons {
+            display: flex;
+        }
+        .header-buttons button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .header-buttons button:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding-top: 20px; /* Añadido para evitar superposición */
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .work-item {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function togglePractices(parcialId) {
+            const allPractices = document.querySelectorAll('.work-item');
+            allPractices.forEach(practice => practice.classList.add('hidden'));
+            const selectedPractices = document.querySelectorAll(`.work-item.${parcialId}`);
+            selectedPractices.forEach(practice => practice.classList.remove('hidden'));
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Gustavo Zapata Baltierra</h1>
+        <div class="header-buttons">
+            <button onclick="togglePractices('inicio')">Inicio</button>
+            <button onclick="togglePractices('parcial1')">Parcial 1</button>
+            <button onclick="togglePractices('parcial2')">Parcial 2</button>
+            <button onclick="togglePractices('parcial3')">Parcial 3</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+
+        <section class="work-item inicio" id="inicio">
+            <h2>Página de Inicio</h2>
+            <p>Bienvenido a mi portafolio. Aquí puedes encontrar mis trabajos y proyectos.</p>
+            <!-- Agrega más contenido según sea necesario -->
+        </section>
+
+       <!-- PARCIAL 1 -->
+
+        <section class="work-item parcial1 hidden" id="trabajo1">
+            <h2>Trabajo 1 - Parcial 1</h2>
+            <p>Descripción del Trabajo 1.</p>
+            <a href="graficas1.html" target="_self">Ver trabajo</a>
+        </section>
+
+        <section class="work-item parcial2 hidden" id="trabajo2">
+            <h2>Trabajo 2 - Parcial 2</h2>
+            <p>Descripción del Trabajo 2.</p>
+            <a href="URL_DEL_TRABAJO_2" target="_self">Ver trabajo</a>
+        </section>
+
+        <section class="work-item parcial3 hidden" id="trabajo3">
+            <h2>Trabajo 3 - Parcial 3</h2>
+            <p>Descripción del Trabajo 3.</p>
+            <a href="URL_DEL_TRABAJO_3" target="_self">Ver trabajo</a>
+        </section>
+
+        <!-- Agrega más secciones según sea necesario -->
+
+    </div>
+    
+    <footer>
+        <p> Portafolio Progra Web</p>
+    </footer>
+</body>
+</html>
