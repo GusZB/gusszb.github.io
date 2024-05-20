@@ -1,271 +1,364 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <style>
-    .boton {
-            width: 100px; /* Ancho inicial */
-            transition: width 0.5s; /* Transición suave */
-            border: 2px solid rgb(0, 0, 0);
-            color: rgb(0, 0, 0);
-            background-color: rgb(255, 255, 255);
-            text-align: center;
-            height: 20px;
-            padding: 2px;
-            border-radius: 5px;
-            display: inline-block;
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Portafolio de Gustavo Zapata Baltierra</title>
+    <style>
+      body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            padding: 15px;
+            display: flex;
             justify-content: space-between;
-            
-
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        /* Cambio de tamaño al hacer hover */
-        .boton:hover {
-            width: 200px; /* Ancho al hacer hover */
+        h1 {
+            font-size: 24px;
+            margin: 0;
         }
-        a {
-            text-decoration: none; 
-            color: inherit; 
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        .header-buttons {
+            display: flex;
         }
-      
-  </style>
-  <header>
-    <div>
-    <h1>Portafolio</h1>
-    <h3>Gustavo Zapata Baltierra</h3>
-    <div class="boton">
-      <a href= "http://www.upslp.edu.mx">Nosotros</a>
-     </div>
-     <br>
-     <div class="boton">
-      <a href= "http://www.upslp.edu.mx">Aspirantes</a>
-     </div>
-     <br>
-  
-     <div class="boton">
-      <a href= "http://www.upslp.edu.mx">Estudiantes</a>
-     </div>
-     <br>
-  
-     <div class="boton">
-      <a href= "http://www.upslp.edu.mx">Docentes</a>
-     </div>
-     <br>
-  
-     <div class="boton">
-      <a href= "http://www.upslp.edu.mx">Egresados</a>
-     </div>
-     <br>
-     
-     <div class="boton">
-      <a href= "183382@upslp.edu.mx">Contacto</a>
-     </div>
-  
-  
-    </div>
-  
+        .header-buttons button {
+            background-color: #34495E;
+            color: #ECF0F1;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .header-buttons button:hover {
+            transform: scale(1.05);
+            background-color: #2C3E50;
+        }
+        .header-buttons button svg {
+            margin-right: 8px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 20px 100px;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #2C3E50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .work-item {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .work-item:hover {
+            transform: translateY(-5px);
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        form input[type="submit"] {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        form input[type="submit"]:hover {
+            background-color: #34495E;
+        }
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ECF0F1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .intro img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .intro-text {
+            max-width: 70%;
+        }
+        .intro h2 {
+            margin-top: 0;
+        }
+        .intro p {
+            margin-bottom: 10px;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .video-container iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lastSection = localStorage.getItem('lastSection');
+            if (lastSection) {
+                togglePractices(lastSection);
+            } else {
+                togglePractices('inicio');
+            }
+        });
 
-  </header>
-        
-          <ul class="menu-horizontal">
-            <li>
-              <a href="#">TRABAJOS</a>
-                  <ul class="menu-vertical">
-                    <li><a href="#reto">Reto</a></li>
-                     <li><a href="#practica1">Práctica 1</a></li>
-                    <li><a href="#practica2">Práctica 2</a></li>
-                   <li><a href="#practica3">Práctica 3</a></li>
-                   <li><a href="#practica4">Práctica 4</a></li>
-                    <li><a href="#practica5">Práctica 5</a></li>
-                   <li><a href="#practica6">Práctica 6</a></li>
-                    <li><a href="#practica7">Práctica 7</a></li>
-                    <li><a href="#sistemasolar">Sistema Solar</a></li>
-                    <li><a href="#frames">Frames</a></li>
-                    <li><a href="#reproductor">Reproductor</a></li>
-                    <li><a href="#tutorias">Formularios</a></li>
-                     <li><a href="#minisitio">Minisitio</a></li>
-                     <li><a href="#infografia">Infografia</a></li>
-            </ul>
-          </li>
-              
-
-            
-        
-      </nav>
+        function togglePractices(parcialId) {
+            const allPractices = document.querySelectorAll('.work-item');
+            allPractices.forEach(practice => practice.classList.add('hidden'));
+            const selectedPractices = document.querySelectorAll(`.work-item.${parcialId}`);
+            selectedPractices.forEach(practice => practice.classList.remove('hidden'));
+            localStorage.setItem('lastSection', parcialId);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Gustavo Zapata Baltierra / 183382 / ITI</h1>
+        <div class="header-buttons">
+            <button onclick="togglePractices('inicio')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio
+            </button>
+            <button onclick="togglePractices('parcial1')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20ZM7 3C4.79086 3 3 4.79086 3 7V18C3 20.2091 4.79086 22 7 22H17C19.2091 22 21 20.2091 21 18V7C21 4.79086 19.2091 3 17 3H7Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 20H15V21H9V20ZM12 1C11.4477 1 11 1.44772 11 2V4H13V2C13 1.44772 12.5523 1 12 1Z" fill="currentColor"/>
+                  </svg>
+                   Parcial 1 
+            </button>
+            <button onclick="togglePractices('parcial2')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20ZM7 3C4.79086 3 3 4.79086 3 7V18C3 20.2091 4.79086 22 7 22H17C19.2091 22 21 20.2091 21 18V7C21 4.79086 19.2091 3 17 3H7Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 20H15V21H9V20ZM12 1C11.4477 1 11 1.44772 11 2V4H13V2C13 1.44772 12.5523 1 12 1Z" fill="currentColor"/>
+                  </svg>
+                   Parcial 2 
+            </button>
+            <button onclick="togglePractices('parcial3')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20ZM7 3C4.79086 3 3 4.79086 3 7V18C3 20.2091 4.79086 22 7 22H17C19.2091 22 21 20.2091 21 18V7C21 4.79086 19.2091 3 17 3H7Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 20H15V21H9V20ZM12 1C11.4477 1 11 1.44772 11 2V4H13V2C13 1.44772 12.5523 1 12 1Z" fill="currentColor"/>
+                  </svg>
+                   Parcial 3
+            </button>
+            <button onclick="togglePractices('comentarios')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 6H6v-2h8v2zm4-4H6v-2h12v2z"/></svg> Acerca de y opiniones
+            </button>
+        </div>
     </header>
-
-    <form action="mailto:183382@upslp.edu.mx" method="post"></form>
-  <h2 class="uno">Gustavo Zapata Baltierra</h2>
+    <div class="container">
+        <section class="work-item inicio" id="inicio">
+            <div class="intro">
+                <img src="https://sic.cultura.gob.mx/images/64360" alt="Logo Politécnica">
+                <div class="intro-text">
+                    <h2>Página de Inicio</h2>
+                    <p>Bienvenido a mi portafolio. Aquí puedes encontrar mis trabajos y proyectos.</p>
+                    <p>Este es mi portafolio final del semestre y espero que te guste.</p>
+                    <p>El diseño estetico de la pagina fue hecho mediante CSS con ayuda de chatgpt, para una vista mas minimalista</p>
+                </div>
+            </div>
+        </section>
+        <!-- PARCIAL 1 -->
+        <div>
+            <section class="work-item parcial1 hidden" id="trabajo1">
+                <h2>Practica 1 - Parcial 1</h2>
+                <a href="parcial1/practica1.html" target="_self">Ver trabajo</a>
+            </section>
+            
+            <section class="work-item parcial1 hidden" id="trabajo2">
+                <h2>Practica 2 - Parcial 1</h2>
+                <a href="practica2.html" target="_self">Ver trabajo</a>
+            </section>
     
+            <section class="work-item parcial1 hidden" id="trabajo3">
+                <h2>Practica 3 - Parcial 1</h2>
+                <a href="practica3.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo4">
+                <h2>Practica 4 - Parcial 1</h2>
+                <a href="practica4.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo5">
+                <h2>Practica 5 - Parcial 1</h2>
+                <a href="practica5.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo6">
+                <h2>Practica 6 - Parcial 1</h2>
+                <a href="practica6.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo7">
+                <h2>Practica 7 - Parcial 1</h2>
+                <a href="practica7.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo8">
+                <h2>Reto - Parcial 1</h2>
+                <a href="reto.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo9">
+                <h2>Tutorias - Parcial 1</h2>
+                <a href="tutorias.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial1 hidden" id="trabajo10">
+                <h2>Reproductor - Parcial 1</h2>
+                <a href="reproductor.html" target="_self">Ver trabajo</a>
+            </section>
+    
+        
+        </div>
 
-      
-    </ul>
-  </nav>
-  <br>
-  <main>
-    <section id="practica1">
-      <h2>Práctica 1</h2>
-      
-        <h3>Link de la práctica</h3>
-        <li><a href="practica1.html">Práctica 1</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
-  
-    <section id="practica2">
-      <h2>Práctica 2</h2>
-      
-        <h3>Link de la práctica</h3>
-        <li><a href="practica2.html">Práctica 2</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
+        <!-- PARCIAL 2 -->
+        <div>
 
-    <section id="practica3">
-      <h2>Práctica 3</h2>
-      
-        <h3>Link de la práctica</h3>
-        <li><a href="practica3.html">Práctica 3</a></li>
-       </div>
-    </section>
-    <br>
-    <br>
+            <section class="work-item parcial2 hidden" id="trabajo1S">
+                <h2>Ajedrez - Parcial 2</h2>
+                <p>Basicamente es un tablero de ajedrez hecho tablas y añadiendole color</p>
+                <a href="ajedrez.html" target="_self">Ver trabajo</a>
+            </section>
 
-    <section id="practica4">
-      <h2>Práctica 4</h2>
-     
-        <h3>Link de la práctica</h3>
-        <li><a href="practica4.html">Práctica 4</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
+            <section class="work-item parcial2 hidden" id="trabajo2S">
+                <h2>Clases - Parcial 2</h2>
+                <p>Inicio de classList</p>
+                <a href="clases2.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo3S">
+                <h2>7 barrios - Parcial 2</h2>
+                <p>Una recopilacion de los 7 barrios de SLP</p>
+                <a href="barrios_slp.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo4S">
+                <h2>Practica 1 - Parcial 2</h2>
+                <a href="practica1B.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo5S">
+                <h2>Practica 2 - Parcial 2</h2>
+                <a href="practica2B.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo6S">
+                <h2>Reto 1 - Parcial 2</h2>
+                <a href="reto1SP.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo7S">
+                <h2>Practica CSS - Parcial 2</h2>
+                <a href="css3.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo8S">
+                <h2>Infografia CSS - Parcial 2</h2>
+                <p>Infografia de los que es CSS</p>
+                <a href="infografiaCSS.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo9S">
+                <h2>Menu Prueba - Parcial 2</h2>
+                <a href="menu.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo10S">
+                <h2>Resuelve - Parcial 2</h2>
+                <a href="resuelve.html" target="_self">Ver trabajo</a>
+            </section>
+    
+            <section class="work-item parcial2 hidden" id="trabajo11S">
+                <h2>Reto 1 Img 1 - Parcial 2</h2>
+                <a href="retocss.html" target="_self">Ver trabajo</a>
+            </section>
+          
+            
+        </div>
 
-    <section id="practica5">
-      <h2>Práctica 5</h2>
-     
-        <h3>Link de la práctica</h3>
-        <li><a href="practica5.html">Práctica 5</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
-
-    <section id="practica6">
-      <h2>Práctica 6</h2>
-      
-        <h3>Link de la práctica</h3>
-        <li><a href="practica6.html">Práctica 6</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
-
-    <section id="practica7">
-      <h2>Práctica 7</h2>
-      <div class="content">
-        <h3>Link de la práctica</h3>
-        <li><a href="practica7.html">Práctica 7</a></li>
-      </div>
-    </section>
-    <br>
-    <br>
-
-    <section id="reto">
-      <h2>Reto</h2>
-      <div class="content">
-        <h3>Link del reto</h3>
-        <li><a href="reto.html">Reto</a></li>
-      </div>
-    </section>
-  </main>
-  <br>
-  <br>
-
-  <section id="sistemasolar">
-    <h2>Sistema Solar</h2>
-    <div class="content">
-      <h3>Link del sistema</h3>
-      <li><a href="sistemasolar.html">Sistema Solar</a></li>
-      <figure><img src="sistemasolar.jpg" width="200" height="100"></figure>
+        <!-- PARCIAL 3 -->
+        <div>
+            <section class="work-item parcial3 hidden" id="trabajo2T">
+                <h2>Trabajos de tercer parcial - Parcial 3</h2>
+                <p>Para una muestra mas practica de todos los trabajos aqui esta el minimenu con todas las actividades</p>
+                <a href="minimenu.html" target="_self">Ver trabajo</a>
+            </section>
+        </div>
+    
+        <section class="work-item comentarios hidden" id="comentarios">
+            <h2>Acerca de y opiniones</h2>
+            <p>Déjame tus comentarios y opiniones sobre mi portafolio:</p>
+            <form action="mailto:183382@upslp.edu.mx" method="post" enctype="text/plain">
+                <label for="name">Nombre:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="comments">Comentarios:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50" required></textarea><br><br>
+                <input type="submit" value="Enviar Comentarios">
+            </form>
+        </section>
     </div>
-  </section>
-</main>
-<br>
-<br>
-
-<section id="reproductor">
-  <h2>Reproductor</h2>
-  <div class="content">
-    <h3>Link del reproductor</h3>
-    <li><a href="reproductor.html">Reproductor</a></li>
-  </div>
-</section>
-</main>
-<br>
-<br>
-
-<section id="formularios">
-  <h2>Formulario</h2>
-  <div class="content">
-    <h3>Link del formulario</h3>
-    <li><a href="tutorias.html">Formularios</a></li>
-  </div>
-</section>
-</main>
-<br>
-<br>
-
-<section id="minisitio">
-  <h2>Minisitio</h2>
-  <div class="content">
-    <h3>Link del minisitio de Google</h3>
-    <li><a href="https://sites.google.com/view/natacanoguszb/who-is-him">Minisitio de Google</a></li>
-    <figure><img src="sitiodegoogle.PNG" width="200" height="100"></figure>
-  </div>
-</section>
-</main>
-<br>
-<br>
-
-<section id="infografia">
-  <h2>Infografia</h2>
-  <div class="content">
-    <h3>Imagen de la Infografia</h3>
-    <figure><img src="infografia.PNG" width="200"></figure>
-  </div>
-</section>
-</main>
-<br>
-<br>
-
-<section id="Frames">
-  <h2>Frames o subsitios</h2>
-  <div class="content">
-    <h3>Link del formulario</h3>
-    <li><a href="frames.html">Frames</a></li>
-    <figure><img src="subsitio.PNG" width="200" height="100"></figure>
-  </div>
-</section>
-</main>
-<br>
-<br>
-
-  <footer>
-    <h3>Información Adicional</h3>
-    <p>ITI / Universidad Politécnica de San Luis Potosí </p>
-    <p>Contacto: 183382@upslp.edu.mx</p>
-    <figure><img src="logopoli.png" width="100" height="50"></figure>
-  </footer>
-<br>
-
-<h3>Escribe tu opinion sobre mi index:</h3>
-<p><textarea name="motivo" cols="10" rows="4" placeholder="Aqui tu comentario"></textarea></p>
-<p>
-  <input type="submit" value="Enviar">
-</p>
-
+    <footer>
+        <p>Portafolio Progra Web</p>
+    </footer>
 </body>
 </html>
